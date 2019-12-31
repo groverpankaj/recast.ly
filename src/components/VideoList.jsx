@@ -6,7 +6,7 @@ var VideoList = (props) => (
 
     {
       props.videos.map( ele => {
-        return (<VideoListEntry video={ele}></VideoListEntry>);
+        return (<VideoListEntry video={ele} key={ele.id.videoId} updateCurrentVideoHandler={props.updateCurrentVideoHandler} ></VideoListEntry>);
       })
     }
 

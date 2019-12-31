@@ -12,11 +12,10 @@ var App = () => (
     <div className="row">
       <div className="col-md-7">
         {/* <div><h5><em>videoPlayer</em> view goes here</h5></div> */}
-        <VideoPlayer></VideoPlayer>
+        <VideoPlayer video={ExampleVideoData[0]}></VideoPlayer>
       </div>
       <div className="col-md-5">
-        <VideoList allList={ExampleVideoData}></VideoList>
-
+        <VideoList videos={ExampleVideoData}></VideoList>
       </div>
     </div>
   </div>

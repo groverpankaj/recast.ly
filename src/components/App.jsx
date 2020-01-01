@@ -1,6 +1,8 @@
 import VideoList from './VideoList.js';
 import ExampleVideoData from '../data/exampleVideoData.js';
 import VideoPlayer from './VideoPlayer.js';
+import SearchYouTube from '../lib/searchYouTube.js';
+import YOUTUBE_API_KEY from '../config/youtube.js';
 
 // var App = () => (
 //   <div>
@@ -25,10 +27,28 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      videoData: ExampleVideoData,
-      currentVideo: ExampleVideoData[0]
+      // videoData: ExampleVideoData,
+      currentVideo: ExampleVideoData[0],
+      videoData: [],
+      // currentVideo: {}
     };
     this.updateCurrentVideo = this.updateCurrentVideo.bind(this);
+    this.updateVideoData = this.updateVideoData.bind(this);
+  }
+
+  componentDidMount() {
+    this.getVideoData();
+  }
+
+  getVideoData() {
+    SearchYouTube(searchOptions, this.updateVideoData);
+  }
+
+  updateVideoData(inputData) {
+    console.log(inputData);
+    this.setState({
+      videoData: inputData
+    });
   }
 
   updateCurrentVideo(clickVideo) {
@@ -36,6 +56,8 @@ class App extends React.Component {
       currentVideo: clickVideo
     });
   }
+
+
 
   render() {
     return (
@@ -61,6 +83,10 @@ class App extends React.Component {
   }
 }
 
-// In the ES6 spec, files are "modules" and do not share a top-level scope
-// `var` declarations will only exist globally where explicitly defined
+var searchOptions = {
+  query: 'javascript',
+  max: 7 || 5,
+  key: YOUTUBE_API_KEY
+};
+
 export default App;

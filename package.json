@@ -13,7 +13,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "jquery": "^2.2.1",
     "lodash": "^4.6.1",
-    "npm": "^6.13.4",
+    "npm": "^6.14.6",
     "react": "^0.14.9",
     "react-devtools": "^3.6.3",
     "react-dom": "^0.14.7"
